@@ -255,6 +255,7 @@ class JiraTestManager:
             for _ in range(create_attempts):
                 try:
                     if self.jira_admin.create_project(project_key, project_name):
+                        time.sleep(1)
                         break
                 except JIRAError as e:
                     if "A project with that name already exists" not in str(e):
